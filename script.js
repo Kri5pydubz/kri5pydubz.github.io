@@ -9,12 +9,17 @@
   }
   var img = document.querySelector(".hero-art img");
   if (!img) return;
-  Promise.all([
-    fetch("assets/hero-tiny-1.txt").then(function (r) { if (!r.ok) throw new Error("1"); return r.text(); }),
-    fetch("assets/hero-tiny-2.txt").then(function (r) { if (!r.ok) throw new Error("2"); return r.text(); })
-  ]).then(function (parts) {
-    img.src = "data:image/jpeg;base64," + parts[0].trim() + parts[1].trim();
-    img.width = 560;
-    img.height = 792;
-  }).catch(function () {});
+  fetch("assets/hero-single.b64")
+    .then(function (r) {
+      if (!r.ok) throw new Error("missing");
+      return r.text();
+    })
+    .then(function (data) {
+      data = data.trim();
+      if (!data || data.indexOf("<") !== -1) return;
+      img.src = "data:image/jpeg;base64," + data;
+      img.width = 560;
+      img.height = 792;
+    })
+    .catch(function () {});
 })();
