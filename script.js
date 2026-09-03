@@ -12,10 +12,17 @@
   var n = 12;
   var jobs = [];
   for (var i = 1; i <= n; i++) {
-    jobs.push(fetch("assets/hero-b64/" + i + ".txt").then(function (r) { return r.text(); }));
+    jobs.push(
+      fetch("assets/hero-b64/" + i + ".txt").then(function (r) {
+        if (!r.ok) throw new Error("missing chunk");
+        return r.text();
+      })
+    );
   }
   Promise.all(jobs).then(function (chunks) {
-    img.src = "data:image/jpeg;base64," + chunks.join("");
+    var data = chunks.join("");
+    if (!data || data.indexOf("<") !== -1) return;
+    img.src = "data:image/jpeg;base64," + data;
     img.width = 560;
     img.height = 792;
   }).catch(function () {});
