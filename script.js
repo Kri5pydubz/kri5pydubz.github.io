@@ -32,9 +32,20 @@
   document.querySelectorAll("img[data-parts]").forEach(function (img) {
     var base = img.getAttribute("data-parts");
     if (!base) return;
-    Promise.all([loadText(base + "-a.txt"), loadText(base + "-b.txt")])
+    var countAttr = img.getAttribute("data-part-count");
+    var fetches;
+    if (countAttr) {
+      var n = parseInt(countAttr, 10) || 0;
+      fetches = [];
+      for (var i = 0; i < n; i++) {
+        fetches.push(loadText(base + "-" + i + ".txt"));
+      }
+    } else {
+      fetches = [loadText(base + "-a.txt"), loadText(base + "-b.txt")];
+    }
+    Promise.all(fetches)
       .then(function (parts) {
-        paint(img, String(parts[0] || "").trim() + String(parts[1] || "").trim());
+        paint(img, parts.map(function (p) { return String(p || "").trim(); }).join(""));
       })
       .catch(function () {});
   });
