@@ -1,1 +1,1 @@
-PLACEHOLDER_B_LOAD
+@/workspace/kri5pydubz-site/members-incoming/site/assets/lenny-b.txt

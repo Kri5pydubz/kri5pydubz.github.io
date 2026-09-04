@@ -1,1 +1,1 @@
-@/tmp/lenny-a-content.txt
+@/workspace/kri5pydubz-site/members-incoming/site/assets/lenny-a.txt
