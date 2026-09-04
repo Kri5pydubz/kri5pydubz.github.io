@@ -1,0 +1,36 @@
+name: Assemble Lenny assets
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "assets/_src/lenny-a/**"
+      - "assets/_src/lenny-b/**"
+      - ".github/workflows/assemble-lenny.yml"
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Concatenate fragments
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          cat assets/_src/lenny-a/*.txt | tr -d '\n' > assets/lenny-a.txt
+          cat assets/_src/lenny-b/*.txt | tr -d '\n' > assets/lenny-b.txt
+          wc -c assets/lenny-a.txt assets/lenny-b.txt
+          test "$(wc -c < assets/lenny-a.txt)" -eq 26966
+          test "$(wc -c < assets/lenny-b.txt)" -eq 26966
+      - name: Commit assembled files
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/lenny-a.txt assets/lenny-b.txt
+          if git diff --staged --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Add Lenny member portrait assets"
+          git push
