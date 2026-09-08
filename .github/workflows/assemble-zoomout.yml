@@ -11,9 +11,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: assemble
+      - name: assemble and commit
         run: |
-          python3 << 'PY'
+          set -euo pipefail
+          python3 - <<'PY'
           from pathlib import Path
           import hashlib
           manifest = {
@@ -40,17 +41,20 @@ jobs:
             got = hashlib.sha256(data.encode()).hexdigest()
             assert got == want_sha, (key, got, want_sha)
             out = Path("assets") / f"{key}.txt"
+            if out.exists() and out.read_text() == data:
+              print("skip", key)
+              continue
             out.write_text(data)
             changed.append(str(out))
             print("OK", key, len(data), got)
-          Path("/tmp/changed.txt").write_text("\n".join(changed))
+          Path("/tmp/changed.txt").write_text("\n".join(changed) + ("\n" if changed else ""))
+          print("changed", changed)
           PY
-      - name: commit assets
-        run: |
-          if [ ! -s /tmp/changed.txt ]; then echo "nothing"; exit 0; fi
+          if [ ! -s /tmp/changed.txt ]; then echo nothing; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           while IFS= read -r f; do
+            [ -z "$f" ] && continue
             git add "$f"
             base=$(basename "$f" .txt)
             git commit -m "assets: ${base} zoomout"
