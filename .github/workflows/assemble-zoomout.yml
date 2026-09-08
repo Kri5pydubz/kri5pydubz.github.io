@@ -1,0 +1,58 @@
+name: assemble-zoomout
+on:
+  push:
+    paths:
+      - 'staging/**'
+      - '.github/workflows/assemble-zoomout.yml'
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: assemble
+        run: |
+          python3 << 'PY'
+          from pathlib import Path
+          import hashlib
+          manifest = {
+            "wulfner-4": (7000, "5024edd34cb3929d6b18d842c838f774933bf9a490aef9c29a2a8ba80f756e7a"),
+            "wulfner-5": (7000, "85a20b5c4ca76c1f32cafe7df47129b5fc8ff6e2711ae52ef6bbadd6e20c3504"),
+            "wulfner-6": (7000, "40f1e452ad7b037e24e46e7adbadb6434b4c901da98930bf5151371a0402e106"),
+            "wulfner-7": (7000, "576bff3eff40da24b7ece11bb5f98bb897f481255683cda89136bcf268a52a73"),
+            "wulfner-8": (7000, "f3a003dd047849a934f99835c0bb26aa4242b4641985e45a42941e6147841b04"),
+            "wulfner-9": (7000, "a2fab36a9bef0ca0fa6a4d4a869f1e377bdfb96631eb77ca39a686f231a251d3"),
+            "wulfner-10": (7000, "39d615744dc7a9d2942bdad1254cb114485c14803efd13c00df8f3cd00df815f"),
+            "wulfner-11": (7000, "706dc31e72b656f4bd75693a7b0d331cd2983446f1a3bd22b6269eecc431ad0c"),
+          }
+          staging = Path("staging")
+          changed = []
+          for key, (want_len, want_sha) in manifest.items():
+            d = staging / key
+            if not d.is_dir():
+              continue
+            parts = sorted(d.glob("p*.txt"))
+            if not parts:
+              continue
+            data = "".join(p.read_text() for p in parts)
+            assert len(data) == int(want_len), (key, len(data), want_len)
+            got = hashlib.sha256(data.encode()).hexdigest()
+            assert got == want_sha, (key, got, want_sha)
+            out = Path("assets") / f"{key}.txt"
+            out.write_text(data)
+            changed.append(str(out))
+            print("OK", key, len(data), got)
+          Path("/tmp/changed.txt").write_text("\n".join(changed))
+          PY
+      - name: commit assets
+        run: |
+          if [ ! -s /tmp/changed.txt ]; then echo "nothing"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          while IFS= read -r f; do
+            git add "$f"
+            base=$(basename "$f" .txt)
+            git commit -m "assets: ${base} zoomout"
+          done < /tmp/changed.txt
+          git push
