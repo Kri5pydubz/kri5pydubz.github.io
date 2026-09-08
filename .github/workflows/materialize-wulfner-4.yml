@@ -1,0 +1,35 @@
+name: materialize-wulfner-4
+on:
+  push:
+    paths:
+      - '.github/workflows/materialize-wulfner-4.yml'
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: materialize
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          parts = sorted(Path('staging/wulfner-4').glob('p*.txt'))
+          print('parts', [p.name for p in parts])
+          data = ''.join(p.read_text() for p in parts)
+          want = '5024edd34cb3929d6b18d842c838f774933bf9a490aef9c29a2a8ba80f756e7a'
+          got = hashlib.sha256(data.encode()).hexdigest()
+          print(len(data), got)
+          assert len(parts) == 14
+          assert len(data) == 7000 and got == want
+          Path('assets').mkdir(exist_ok=True)
+          Path('assets/wulfner-4.txt').write_text(data)
+          print('wrote assets/wulfner-4.txt')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/wulfner-4.txt
+          git commit -m "assets: wulfner-4 zoomout"
+          git push
