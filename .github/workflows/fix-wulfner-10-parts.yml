@@ -1,0 +1,44 @@
+name: fix-wulfner-10-parts
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-wulfner-10-parts.yml'
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: fix corrupted staging parts
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p1 = Path('staging/wulfner-10/p01.txt')
+          t1 = p1.read_text()
+          fix1 = ''.join(chr(x) for x in [0x50,0x45,0x4c,0x51,0x50,0x51,0x76])
+          assert 'SIDEQPQv' in t1
+          t1 = t1.replace('SIDEQPQv', fix1, 1)
+          p1.write_text(t1)
+          p12 = Path('staging/wulfner-10/p12.txt')
+          t12 = p12.read_text()
+          assert 'NS2qt0m' in t12
+          t12 = t12.replace('NS2qt0m', 'NS2q' + chr(0x64) + '0m', 1)
+          p12.write_text(t12)
+          # verify full assemble
+          parts = sorted(Path('staging/wulfner-10').glob('p*.txt'))
+          data = ''.join(p.read_text() for p in parts)
+          want = '39d615744dc7a9d2942bdad1254cb114485c14803efd13c00df8f3cd00df815f'
+          got = hashlib.sha256(data.encode()).hexdigest()
+          assert len(data)==7000 and got==want, (len(data), got)
+          Path('assets').mkdir(exist_ok=True)
+          Path('assets/wulfner-10.txt').write_text(data)
+          print('OK', got)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add staging/wulfner-10/p01.txt staging/wulfner-10/p12.txt assets/wulfner-10.txt
+          git commit -m "assets: wulfner-10 zoomout"
+          git push
