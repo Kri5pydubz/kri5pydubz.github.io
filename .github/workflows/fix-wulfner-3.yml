@@ -1,0 +1,35 @@
+name: fix-wulfner-3
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-wulfner-3.yml'
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: surgical Us fix
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p = Path('assets/wulfner-3.txt')
+          t = p.read_text()
+          assert len(t) == 7000
+          assert t[2037:2039] == 'LS', repr(t[2037:2039])
+          t2 = t[:2037] + 'Us' + t[2039:]
+          want = '82edda6e0219572ac6814ee98233d4d1b1b6204c2638ad258a9fced50fac07e5'
+          got = hashlib.sha256(t2.encode()).hexdigest()
+          assert got == want, got
+          p.write_text(t2)
+          print('fixed', got)
+          PY
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/wulfner-3.txt
+          git commit -m "assets: wulfner-3 zoomout"
+          git push
