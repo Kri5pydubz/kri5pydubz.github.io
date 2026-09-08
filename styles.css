@@ -9,8 +9,10 @@
 .members-list{display:block;}
 .member{display:grid;gap:1.1rem;margin:1.75rem 0 0;padding:1.1rem 0 0;border-top:3px dashed rgba(244,241,234,0.18);}
 .member:first-of-type{border-top:0;padding-top:0;}
-.member-art{margin:0;width:min(100%,14rem);}.member-art--wide{width:min(100%,22rem);}.member-art--wide img{object-fit:contain;aspect-ratio:16/9;}
-.member-art img{width:100%;border:4px solid var(--bone);box-shadow:6px 6px 0 var(--ink),10px 10px 0 var(--spray);transform:rotate(-1.4deg);background:var(--ink);filter:none;}
+.member-art{margin:0;width:min(100%,14rem);}
+.member-art--wide{width:min(100%,22rem);}
+.member-art img{width:100%;height:auto;border:4px solid var(--bone);box-shadow:6px 6px 0 var(--ink),10px 10px 0 var(--spray);transform:rotate(-1.4deg);background:var(--ink);filter:none;aspect-ratio:2/3;object-fit:cover;}
+.member-art--wide img{aspect-ratio:16/9;object-fit:contain;}
 .member:nth-child(even) .member-art img{transform:rotate(1.6deg);box-shadow:6px 6px 0 var(--ink),10px 10px 0 var(--atomic);}
 .member-role{margin:0 0 0.25rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:0.68rem;color:var(--atomic);}
 .member h3{margin:0 0 0.55rem;font-family:"Black Ops One",system-ui,sans-serif;font-size:clamp(1.35rem,4vw,2rem);line-height:1.05;color:var(--tag);text-shadow:2px 2px 0 var(--ink);}
