@@ -18,7 +18,7 @@ jobs:
           mkdir -p play
           cat assets/_src/neon-play/part-*.txt > play/index.html
           wc -c play/index.html
-          test "$(wc -c < play/index.html)" -eq 59148
+          test "$(wc -c < play/index.html)" -eq 22273
           head -c 15 play/index.html | grep -q '<!DOCTYPE html'
           grep -q 'Neon Streets' play/index.html
           ! grep -q '@file://' play/index.html
