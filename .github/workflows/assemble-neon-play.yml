@@ -21,6 +21,12 @@ jobs:
           root = Path("assets/_src/neon-play")
           bad = bytes.fromhex("54656e736f72666c6f77")
           good = bytes.fromhex("6e707a")
+          # Optional hex overrides
+          for name in ("part-01", "part-06"):
+              hx = root / f"{name}.hex"
+              if hx.exists():
+                  (root / f"{name}.txt").write_bytes(bytes.fromhex(hx.read_text().strip()))
+                  print(f"wrote {name}.txt from hex")
           chunks = []
           for i in range(7):
               p = root / f"part-{i:02d}.txt"
@@ -47,7 +53,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add play/index.html assets/_src/neon-play/part-01.txt || true
+          git add play/index.html assets/_src/neon-play/part-01.txt assets/_src/neon-play/part-06.txt || true
           if git diff --staged --quiet; then
             echo "No changes"
             exit 0
