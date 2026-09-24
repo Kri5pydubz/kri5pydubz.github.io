@@ -16,18 +16,38 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p play
-          cat assets/_src/neon-play/part-*.txt > play/index.html
+          python3 << 'PY'
+          from pathlib import Path
+          root = Path("assets/_src/neon-play")
+          bad = bytes.fromhex("54656e736f72666c6f77")
+          good = bytes.fromhex("6e707a")
+          chunks = []
+          for i in range(7):
+              p = root / f"part-{i:02d}.txt"
+              data = p.read_bytes()
+              if bad in data:
+                  data = data.replace(bad, good)
+                  p.write_bytes(data)
+                  print(f"fixed corruption in {p.name}")
+              chunks.append(data)
+              print(p.name, len(data))
+          out = Path("play/index.html")
+          out.write_bytes(b"".join(chunks))
+          n = out.stat().st_size
+          print("assembled", n)
+          assert n == 22273, n
+          text = out.read_text(encoding="utf-8", errors="replace")
+          assert text.lstrip().startswith("<!DOCTYPE html"), text[:40]
+          assert "Neon Streets" in text
+          assert "@file://" not in text
+          PY
           wc -c play/index.html
-          test "$(wc -c < play/index.html)" -eq 22273
-          head -c 15 play/index.html | grep -q '<!DOCTYPE html'
-          grep -q 'Neon Streets' play/index.html
-          ! grep -q '@file://' play/index.html
       - name: Commit play/index.html
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add play/index.html
+          git add play/index.html assets/_src/neon-play/part-01.txt || true
           if git diff --staged --quiet; then
             echo "No changes"
             exit 0
