@@ -9,10 +9,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260908b">
+  <link rel="stylesheet" href="styles.css?v=20260924play">
+  <style>
+    body.play-page { min-height: 100vh; display: flex; flex-direction: column; background: #111; }
+    body.play-page .site-header { flex-shrink: 0; }
+    .play-bar {
+      flex-shrink: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1.25rem;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid rgba(244,241,234,0.12);
+      background: #111;
+    }
+    .play-bar h1 {
+      margin: 0;
+      font-family: "Black Ops One", system-ui, sans-serif;
+      font-size: clamp(1.15rem, 3vw, 1.6rem);
+      color: #F4F1EA;
+      letter-spacing: 0.02em;
+    }
+    .play-bar .hint {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(244,241,234,0.72);
+      max-width: 42rem;
+    }
+    .play-stage-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      background: #0a0a0a;
+    }
+    .play-stage {
+      flex: 1;
+      width: 100%;
+      min-height: min(78vh, 900px);
+      height: calc(100vh - 7.5rem);
+      border: 0;
+      background: #000;
+    }
+    @media (max-width: 720px) {
+      .play-stage { height: calc(100vh - 9.5rem); min-height: 60vh; }
+    }
+  </style>
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
+<body class="play-page">
+  <a class="skip" href="#game">Skip to game</a>
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Kri5pydubz home">
@@ -25,56 +69,26 @@
       <a href="members.html">Members</a>
       <a href="league.html">League</a>
       <a href="merch.html">Merch</a>
-      <a href="play.html">Play</a>
+      <a href="play.html" aria-current="page">Play</a>
     </nav>
   </header>
 
-  <main id="main">
-    <section class="hero members-hero" id="top">
-      <div class="hero-copy">
-        <p class="kicker">Browser game · DUBZ</p>
-        <h1 class="wordmark members-wordmark">Neon Streets</h1>
-        <p class="hook">Dubzilla holds the strip.</p>
-        <p class="lede">Side-scrolling brawler. Walk the lane. Claw up close. Spin the pack. Burn the line. Grab street props. Survive the blackout. Shatter Nyx Coil’s crystals to drop her shield.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="play/index.html">Play now</a>
-          <a class="btn btn-ghost" href="index.html">Back to home</a>
-        </div>
-      </div>
-    </section>
+  <div class="play-bar">
+    <h1>Neon Streets</h1>
+    <p class="hint">WASD / arrows · Space jump · J claw · K spin · L breath · G grab · M mute. Tap the game once so keys go there.</p>
+  </div>
 
-    <section class="who" id="controls">
-      <p class="section-tag">Controls</p>
-      <h2>Keyboard or touch. Same fight.</h2>
-      <p>Move with <strong>WASD</strong> or <strong>arrows</strong>. <strong>Space</strong> jumps. <strong>J</strong> claw, <strong>K</strong> spin, <strong>L</strong> breath, <strong>G</strong> grab. On phone, use the on-screen pads.</p>
-      <ul class="pills">
-        <li>WASD / Arrows · move</li>
-        <li>Space · jump</li>
-        <li>J · claw</li>
-        <li>K · spin</li>
-        <li>L · breath</li>
-        <li>G · grab</li>
-      </ul>
-      <p class="crew-jump"><a href="play/index.html">Launch full game</a> · <a href="https://krisgoodwin1-byte.github.io/neon-streets/">Backup Pages URL</a></p>
-    </section>
-
-    <section class="who" id="about">
-      <p class="section-tag">About</p>
-      <h2>Built for the alley. Runs in the browser.</h2>
-      <p>No install required. Works landscape on mobile. Add to Home screen on Android for the PWA shell. Kri5pydubz. Let’s run it.</p>
-      <ul class="pills">
-        <li>Free in-browser</li>
-        <li>PWA-ready</li>
-        <li>DUBZ energy</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p class="wordmark wordmark-foot">Kri<span class="five">5</span>pydubz</p>
-    <p class="hook">Kri5pydubz. Let’s run it.</p>
-  </footer>
-
-  <script src="script.js?v=20260908b"></script>
+  <div class="play-stage-wrap">
+    <iframe
+      id="game"
+      class="play-stage"
+      title="Neon Streets / Dubzilla"
+      src="play/index.html"
+      allow="fullscreen; gamepad; autoplay"
+      allowfullscreen
+      loading="eager"
+      referrerpolicy="same-origin"
+    ></iframe>
+  </div>
 </body>
 </html>
