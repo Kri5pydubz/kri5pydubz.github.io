@@ -25,3 +25,5 @@
 @media (prefers-reduced-motion:reduce){
   .member-art img{transform:none;}
 }
+.hero-tag{position:absolute;left:0.9rem;bottom:1.1rem;z-index:2;font-family:"Permanent Marker",cursive;font-size:clamp(1.5rem,5vw,2.1rem);line-height:1;color:var(--tag);text-shadow:2px 2px 0 var(--ink),4px 4px 0 var(--spray),-1px -1px 0 var(--ink),1px -1px 0 var(--ink),-1px 1px 0 var(--ink);transform:rotate(-4deg);pointer-events:none;white-space:nowrap;}
+@media (prefers-reduced-motion:reduce){.hero-tag{transform:none;}}
