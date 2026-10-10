@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261010a">
+  <link rel="stylesheet" href="styles.css?v=20261010b">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -75,10 +75,28 @@
       </div>
       <p class="league-swipe" aria-hidden="true">Swipe the table for all columns →</p>
       <p class="league-updated" id="league-updated">Last updated: <time datetime="2026-10-10">10 October 2026</time></p>
+      <section class="league-results" aria-labelledby="results-title">
+        <h3 id="results-title">Recent results</h3>
+        <ul class="results-feed" id="league-results">
+          <li class="results-empty">No matches played yet — results land here after league night.</li>
+        </ul>
+      </section>
+
+      <div class="spotlight">
+        <article class="spot-card">
+          <h3>Top player</h3>
+          <p id="spot-top"><span class="spot-tbd">TBD — first matches pending</span></p>
+        </article>
+        <article class="spot-card spot-card--alt">
+          <h3>Most improved</h3>
+          <p id="spot-improved"><span class="spot-tbd">TBD — first matches pending</span></p>
+        </article>
+      </div>
+
       <div class="league-how">
         <h3>How it works</h3>
-        <p><strong>Win = 3 points. Loss = 0.</strong> Level on points? Round difference decides it, then most rounds won.</p>
-        <p class="league-key">Round difference = rounds won minus rounds lost.</p>
+        <p>New here? Easy. Every match is <strong>first to 2 rounds</strong> (best of 3) unless we say otherwise.</p>
+        <p><strong>Win a game = 3 points. Lose = 0.</strong> Your rounds won and lost make your round difference. Level on points? Round difference decides it first, then most rounds won.</p>
       </div>
     </section>
 
@@ -123,6 +141,6 @@
   </footer>
 
   <script src="script.js?v=20260908b"></script>
-  <script src="assets/league.js?v=20261010a"></script>
+  <script src="assets/league.js?v=20261010b"></script>
 </body>
 </html>

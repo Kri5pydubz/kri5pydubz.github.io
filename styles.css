@@ -56,3 +56,26 @@
 .league-key{font-size:0.85rem;opacity:0.85;}
 @media (max-width:30rem){.league-table{min-width:40rem;}.league-table th,.league-table td{padding:0.5rem 0.45rem;}.league-table tbody .lt-player{font-size:0.92rem;}}
 @media (prefers-reduced-motion:reduce){.league-how{transform:none;}}
+.league-results{margin:1.8rem 0 0;max-width:40rem;}
+.league-results h3,.spot-card h3{margin:0 0 0.6rem;font-family:"Black Ops One",system-ui,sans-serif;font-weight:400;font-size:1.35rem;color:var(--bone);}
+.results-feed{list-style:none;margin:0;padding:0;display:grid;gap:0.5rem;}
+.results-feed li{padding:0.6rem 0.85rem;background:var(--ink);border:2px solid var(--bone);box-shadow:3px 3px 0 var(--atomic);}
+.results-feed li:nth-child(even){box-shadow:3px 3px 0 var(--spray);}
+.results-empty{font-style:italic;opacity:0.9;border-style:dashed !important;box-shadow:none !important;}
+.result{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.3rem 0.8rem;}
+.result-date{font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--tag);min-width:3.6rem;}
+.result-line{font-weight:600;}
+.result-win{color:var(--atomic);font-weight:700;}
+.result-score{font-family:"Black Ops One",system-ui,sans-serif;padding:0 0.3rem;color:var(--bone);}
+.result-note{font-size:0.85rem;opacity:0.8;}
+.spotlight{display:grid;gap:1rem;margin:1.8rem 0 0;max-width:40rem;}
+.spot-card{padding:0.9rem 1rem 1rem;background:var(--ink);border:var(--outline) solid var(--tag);box-shadow:5px 5px 0 var(--spray);transform:rotate(-0.6deg);}
+.spot-card--alt{border-color:var(--atomic);box-shadow:5px 5px 0 var(--tag);transform:rotate(0.6deg);}
+.spot-card h3{font-family:"Permanent Marker",cursive;color:var(--tag);font-size:1.2rem;margin-bottom:0.3rem;}
+.spot-card--alt h3{color:var(--atomic);}
+.spot-card p{margin:0;}
+.spot-name{display:block;font-family:"Black Ops One",system-ui,sans-serif;font-size:1.5rem;color:var(--bone);}
+.spot-meta{display:block;font-size:0.9rem;opacity:0.85;}
+.spot-tbd{font-weight:700;opacity:0.9;}
+@media (min-width:40rem){.spotlight{grid-template-columns:1fr 1fr;}}
+@media (prefers-reduced-motion:reduce){.spot-card{transform:none;}}
