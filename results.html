@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Results &amp; Match History — Kri5pydubz</title>
+  <meta name="description" content="Every DUBZ League result in one place: who played who, the score and who won. Nothing vanishes after league night.">
+  <meta name="theme-color" content="#111111">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261010e">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Kri5pydubz home">
+      Kri<span class="five">5</span>pydubz
+    </a>
+    <nav aria-label="Site">
+      <a href="index.html#who">Who</a>
+      <a href="index.html#when">When</a>
+      <a href="index.html#watch">Watch</a>
+      <a href="members.html">Members</a>
+      <a href="league.html">League</a>
+      <a href="results.html" aria-current="page">Results</a>
+      <a href="merch.html">Merch</a>
+      <a href="play.html">Play</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero members-hero" id="top">
+      <div class="hero-copy">
+        <p class="kicker">DUBZ League · match history</p>
+        <h1 class="wordmark members-wordmark">Results</h1>
+        <p class="hook">Kri5pydubz. Let’s run it.</p>
+        <p class="lede">Every league match, who played who, the score and who took it. Newest first, so nothing vanishes after league night.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="league.html#table">League table</a>
+          <a class="btn btn-ghost" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="who league" id="history" aria-labelledby="history-title">
+      <p class="section-tag">Match history</p>
+      <h2 id="history-title">All results</h2>
+
+      <div class="history-filter" id="history-filter" hidden>
+        <label for="history-player">Show matches for</label>
+        <select id="history-player">
+          <option value="">Everyone</option>
+        </select>
+      </div>
+      <p class="history-count" id="history-count" role="status" aria-live="polite"></p>
+
+      <div id="history-list" class="history-list">
+        <p class="history-empty">No matches played yet — every result lands here after league night, so nothing vanishes. <a href="league.html#table">See the League table</a>.</p>
+      </div>
+      <noscript>
+        <p class="history-empty">Turn on JavaScript to see the full match history. You can still check the <a href="league.html#table">League table</a>.</p>
+      </noscript>
+
+      <p class="crew-jump"><a href="league.html#table">← Back to the League table</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="wordmark wordmark-foot">Kri<span class="five">5</span>pydubz</p>
+    <p class="hook">Kri5pydubz. Let’s run it.</p>
+  </footer>
+
+  <script src="script.js?v=20260908b"></script>
+  <script src="assets/results.js?v=20261010a"></script>
+</body>
+</html>
