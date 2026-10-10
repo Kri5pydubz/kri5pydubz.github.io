@@ -24,8 +24,9 @@
   fetch("assets/league.json", { cache: "no-store" })
     .then(function (r) { if (!r.ok) throw new Error("league.json"); return r.json(); })
     .then(function (data) {
-      var win = data.pointsForWin != null ? num(data.pointsForWin) : 3;
-      var loss = data.pointsForLoss != null ? num(data.pointsForLoss) : 0;
+      // Points = 2 per game won + 1 per round won (losses score nothing)
+      var perGame = data.pointsPerGameWon != null ? num(data.pointsPerGameWon) : 2;
+      var perRound = data.pointsPerRoundWon != null ? num(data.pointsPerRoundWon) : 1;
       var table = {};
       function row(name) {
         name = String(name || "").trim();
@@ -48,7 +49,7 @@
 
       var rows = Object.keys(table).map(function (k) {
         var r = table[k];
-        r.diff = r.rw - r.rl; r.pts = r.won * win + r.lost * loss;
+        r.diff = r.rw - r.rl; r.pts = r.won * perGame + r.rw * perRound;
         return r;
       });
       rows.sort(function (a, b) {

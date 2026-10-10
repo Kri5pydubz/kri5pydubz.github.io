@@ -2,8 +2,8 @@
   "season": "Season 1",
   "status": "Starts soon",
   "lastUpdated": "2026-10-10",
-  "pointsForWin": 3,
-  "pointsForLoss": 0,
+  "pointsPerGameWon": 2,
+  "pointsPerRoundWon": 1,
   "mostImproved": "",
   "players": ["Drizzy", "DUBZ|pandanads", "Kri5pydubz", "Lenny", "Wulfner", "xtwiisted"],
   "results": []
