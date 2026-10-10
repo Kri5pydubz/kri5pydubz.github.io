@@ -1,0 +1,15 @@
+{
+  "season": "Season 1",
+  "status": "Starts soon",
+  "lastUpdated": "2026-10-10",
+  "pointsForWin": 3,
+  "pointsForLoss": 0,
+  "players": [
+    { "name": "Drizzy",         "played": 0, "won": 0, "lost": 0, "roundsWon": 0, "roundsLost": 0 },
+    { "name": "DUBZ|pandanads", "played": 0, "won": 0, "lost": 0, "roundsWon": 0, "roundsLost": 0 },
+    { "name": "Kri5pydubz",     "played": 0, "won": 0, "lost": 0, "roundsWon": 0, "roundsLost": 0 },
+    { "name": "Lenny",          "played": 0, "won": 0, "lost": 0, "roundsWon": 0, "roundsLost": 0 },
+    { "name": "Wulfner",        "played": 0, "won": 0, "lost": 0, "roundsWon": 0, "roundsLost": 0 },
+    { "name": "xtwiisted",      "played": 0, "won": 0, "lost": 0, "roundsWon": 0, "roundsLost": 0 }
+  ]
+}

@@ -27,3 +27,32 @@
 }
 .hero-tag{position:absolute;left:0.9rem;bottom:1.1rem;z-index:2;font-family:"Permanent Marker",cursive;font-size:clamp(1.5rem,5vw,2.1rem);line-height:1;color:var(--tag);text-shadow:2px 2px 0 var(--ink),4px 4px 0 var(--spray),-1px -1px 0 var(--ink),1px -1px 0 var(--ink),-1px 1px 0 var(--ink);transform:rotate(-4deg);pointer-events:none;white-space:nowrap;}
 @media (prefers-reduced-motion:reduce){.hero-tag{transform:none;}}
+/* League table */
+.league{margin-bottom:1.5rem;}
+.league-scroll{margin:1.4rem 0 0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:var(--outline) solid var(--bone);background:var(--ink);box-shadow:6px 6px 0 var(--spray);}
+.league-scroll:focus-visible{outline:3px solid var(--atomic);outline-offset:3px;}
+.league-table{width:100%;min-width:44rem;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+.league-table caption{caption-side:top;text-align:left;padding:0.6rem 0.85rem 0.5rem;font-family:"Permanent Marker",cursive;font-size:1.1rem;color:var(--tag);border-bottom:2px dashed rgba(244,241,234,0.25);}
+.league-table th,.league-table td{padding:0.6rem 0.65rem;text-align:center;white-space:nowrap;border-bottom:1px solid rgba(244,241,234,0.12);}
+.league-table thead th{font-family:"Black Ops One",system-ui,sans-serif;font-weight:400;font-size:0.9rem;letter-spacing:0.04em;color:var(--ink);background:var(--atomic);border-bottom:var(--outline) solid var(--ink);}
+.league-table thead th{white-space:normal;line-height:1.15;vertical-align:bottom;min-width:4.6rem;}
+.league-table thead .lt-pos{min-width:0;}
+.league-table thead .lt-player{min-width:9rem;}
+.league-table .lt-player{text-align:left;}
+.league-table tbody .lt-player{font-family:"Black Ops One",system-ui,sans-serif;font-weight:400;font-size:1.02rem;color:var(--bone);}
+.league-table tbody tr:nth-child(even){background:rgba(244,241,234,0.04);}
+.league-table tbody tr:hover{background:rgba(184,240,0,0.08);}
+.league-table .lt-pos{width:3.2rem;color:var(--tag);font-weight:700;}
+.league-table thead .lt-pos{color:var(--ink);}
+.league-table tbody .lt-pts{font-family:"Black Ops One",system-ui,sans-serif;font-size:1.1rem;color:var(--atomic);}
+.league-table thead .lt-pts{background:var(--tag);}
+.league-table tbody tr:last-child th,.league-table tbody tr:last-child td{border-bottom:0;}
+.league-swipe{display:none;margin:0.7rem 0 0 !important;font-family:"Permanent Marker",cursive;font-size:0.95rem;color:var(--tag);}
+@media (max-width:47.99rem){.league-swipe{display:block;}}
+.league-updated{margin:1rem 0 0 !important;font-size:0.9rem;opacity:0.85;}
+.league-how{margin:1.4rem 0 0;padding:0.9rem 1rem;max-width:40rem;border:2px dashed var(--tag);transform:rotate(-0.4deg);}
+.league-how h3{margin:0 0 0.4rem;font-family:"Permanent Marker",cursive;font-weight:400;font-size:1.25rem;color:var(--tag);}
+.league-how p + p{margin-top:0.5rem;}
+.league-key{font-size:0.85rem;opacity:0.85;}
+@media (max-width:30rem){.league-table{min-width:40rem;}.league-table th,.league-table td{padding:0.5rem 0.45rem;}.league-table tbody .lt-player{font-size:0.92rem;}}
+@media (prefers-reduced-motion:reduce){.league-how{transform:none;}}

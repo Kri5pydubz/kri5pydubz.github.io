@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260908b">
+  <link rel="stylesheet" href="styles.css?v=20261010a">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -40,6 +40,45 @@
           <a class="btn btn-primary" href="https://www.tiktok.com/@kri5pydubz">Watch the streams</a>
           <a class="btn btn-ghost" href="index.html">Back to home</a>
         </div>
+      </div>
+    </section>
+
+    <section class="who league" id="table">
+      <p class="section-tag">League table</p>
+      <h2 id="league-status">Season 1 — starts soon</h2>
+      <p>No results yet, so everyone’s level on zero and listed A–Z. First sets land, the table moves.</p>
+      <div class="league-scroll" role="region" aria-labelledby="league-caption" tabindex="0">
+        <table class="league-table">
+          <caption id="league-caption">DUBZ League · Season 1 standings</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="lt-pos">Pos</th>
+              <th scope="col" class="lt-player">Player</th>
+              <th scope="col">Played</th>
+              <th scope="col">Games won</th>
+              <th scope="col">Games lost</th>
+              <th scope="col">Rounds won</th>
+              <th scope="col">Rounds lost</th>
+              <th scope="col">Round difference</th>
+              <th scope="col" class="lt-pts">Points</th>
+            </tr>
+          </thead>
+          <tbody id="league-body">
+            <tr><td class="lt-pos">–</td><th scope="row" class="lt-player">Drizzy</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="lt-pts">0</td></tr>
+            <tr><td class="lt-pos">–</td><th scope="row" class="lt-player">DUBZ|pandanads</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="lt-pts">0</td></tr>
+            <tr><td class="lt-pos">–</td><th scope="row" class="lt-player">Kri5pydubz</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="lt-pts">0</td></tr>
+            <tr><td class="lt-pos">–</td><th scope="row" class="lt-player">Lenny</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="lt-pts">0</td></tr>
+            <tr><td class="lt-pos">–</td><th scope="row" class="lt-player">Wulfner</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="lt-pts">0</td></tr>
+            <tr><td class="lt-pos">–</td><th scope="row" class="lt-player">xtwiisted</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="lt-pts">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="league-swipe" aria-hidden="true">Swipe the table for all columns →</p>
+      <p class="league-updated" id="league-updated">Last updated: <time datetime="2026-10-10">10 October 2026</time></p>
+      <div class="league-how">
+        <h3>How it works</h3>
+        <p><strong>Win = 3 points. Loss = 0.</strong> Level on points? Round difference decides it, then most rounds won.</p>
+        <p class="league-key">Round difference = rounds won minus rounds lost.</p>
       </div>
     </section>
 
@@ -84,5 +123,6 @@
   </footer>
 
   <script src="script.js?v=20260908b"></script>
+  <script src="assets/league.js?v=20261010a"></script>
 </body>
 </html>
