@@ -79,3 +79,10 @@
 .spot-tbd{font-weight:700;opacity:0.9;}
 @media (min-width:40rem){.spotlight{grid-template-columns:1fr 1fr;}}
 @media (prefers-reduced-motion:reduce){.spot-card{transform:none;}}
+.league-info{display:grid;gap:1.2rem;margin:1.4rem 0 0;align-items:start;}
+.league-info .league-how{margin:0;max-width:none;}
+.league-rules{border-color:var(--atomic);transform:rotate(0.4deg);}
+.league-rules h3{color:var(--atomic);}
+.league-rules ol{margin:0;padding-left:1.3rem;display:grid;gap:0.45rem;}
+@media (min-width:48rem){.league-info{grid-template-columns:1fr 1fr;max-width:56rem;}}
+@media (prefers-reduced-motion:reduce){.league-rules{transform:none;}}
