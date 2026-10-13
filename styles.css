@@ -109,3 +109,8 @@ nav{flex-wrap:wrap;}
 .history-empty{padding:0.75rem 0.95rem;background:var(--ink);border:2px dashed var(--bone);font-style:italic;max-width:40rem;}
 .history-empty a{font-style:normal;font-weight:700;}
 .results-more{margin:0.75rem 0 0 !important;font-weight:700;}
+
+/* legal small print */
+.legal-links{font-size:.85rem;margin-top:.6rem;opacity:.85}
+.legal-links a{color:inherit}
+.legal-note{font-size:.85rem;opacity:.8}
