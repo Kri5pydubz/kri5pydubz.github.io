@@ -114,3 +114,34 @@ nav{flex-wrap:wrap;}
 .legal-links{font-size:.85rem;margin-top:.6rem;opacity:.85}
 .legal-links a{color:inherit}
 .legal-note{font-size:.85rem;opacity:.8}
+
+/* Featured crew leader: scoped independently of the existing member cards. */
+.crew-leader{
+  display:grid;align-items:center;gap:1.5rem;
+  max-width:calc(var(--max) - 4rem);margin:1.5rem auto 3rem;
+  padding:2rem;border:3px solid var(--bone);
+  box-shadow:7px 7px 0 var(--spray),11px 11px 0 var(--ink);
+  background:radial-gradient(ellipse at 20% 55%,rgba(184,240,0,.16),transparent 55%),
+    repeating-linear-gradient(-18deg,transparent 0 24px,rgba(244,241,234,.025) 24px 26px),var(--asphalt);
+}
+.crew-leader-art{display:grid;place-items:center;}
+.crew-leader-art img{width:auto;height:clamp(22rem,38vw,32rem);max-width:100%;object-fit:contain;filter:drop-shadow(5px 7px 0 var(--ink));}
+.crew-leader-copy{min-width:0;}
+.crew-leader-tag{display:inline-block;margin:0 0 1.25rem;padding:.4rem .75rem;
+  background:var(--atomic);color:var(--ink);border:2px solid var(--ink);
+  box-shadow:4px 4px 0 var(--spray);font-family:"Permanent Marker",cursive;
+  font-size:clamp(1rem,2vw,1.35rem);transform:rotate(-2deg);}
+.crew-leader h2{margin:0;font-family:"Black Ops One",system-ui,sans-serif;
+  font-size:clamp(2.2rem,5.5vw,4.6rem);line-height:1.05;letter-spacing:-.025em;
+  color:var(--bone);text-shadow:3px 3px 0 var(--ink),5px 5px 0 var(--spray);overflow-wrap:anywhere;}
+.crew-leader-line{max-width:28rem;margin:1.25rem 0 0;font-size:clamp(1.15rem,2vw,1.5rem);color:var(--tag);}
+@media(min-width:48rem){.crew-leader{grid-template-columns:minmax(14rem,.8fr) minmax(0,1.2fr);gap:2.5rem;}}
+@media(max-width:47.99rem){.crew-leader{margin:1.25rem 1.15rem 2.5rem;padding:1.5rem 1rem;gap:1.75rem;text-align:center;}.crew-leader-line{margin-inline:auto;}}
+@media(prefers-reduced-motion:reduce){.crew-leader-tag{transform:none;}}
+
+/* Home hero: copy above a full-width landscape sticker. */
+#top.hero{grid-template-columns:minmax(0,1fr);align-items:start;}
+#top .hero-copy{min-width:0;}
+#top .wordmark{font-size:clamp(1.8rem,10vw,6.4rem);white-space:nowrap;word-break:normal;overflow-wrap:normal;}
+#top .hero-art{width:100%;min-width:0;}
+#top .hero-art img{aspect-ratio:16/9;height:auto;}
