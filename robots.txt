@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kri5pydubz.com/sitemap.xml
