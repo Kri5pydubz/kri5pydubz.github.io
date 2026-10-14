@@ -1,0 +1,18 @@
+{
+  "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
+  "updated": "2026-10-14",
+  "posts": [
+    {"id": "2110022876745126176", "name": "TEKKEN", "handle": "TEKKEN", "date": "2026-10-13T15:00:30Z",
+     "text": "She's feeling devilish today 😈⚡\nHappy birthday, Reina! #TEKKEN8",
+     "url": "https://x.com/TEKKEN/status/2110022876745126176"},
+    {"id": "2109271901935669459", "name": "TEKKEN", "handle": "TEKKEN", "date": "2026-10-11T13:16:24Z",
+     "text": "The Pocket Commander will be available Nov 11 PST | Nov 12 CET on Early Access, and Nov 16 PST | Nov 17 CET on General Access.\n\nGet the Season 3 Pass and play as Roger Jr. 120 hours early!\n\n#TEKKEN8",
+     "url": "https://x.com/TEKKEN/status/2109271901935669459"},
+    {"id": "2109266974689702291", "name": "TEKKEN", "handle": "TEKKEN", "date": "2026-10-11T12:56:49Z",
+     "text": "If you want to get stronger, DO IT!\n\nCatch Yujiro Hanma's new trailer on Sunday, January 17, 2027, at the #TWT2026 Global Finals in Singapore🔥\n\n#TEKKEN8",
+     "url": "https://x.com/TEKKEN/status/2109266974689702291"},
+    {"id": "2108467553467019605", "name": "TEKKEN", "handle": "TEKKEN", "date": "2026-10-09T08:00:12Z",
+     "text": "The best way - no, the RIGHT way to play #TEKKEN8.\n\nCome play on our custom event cabinet at #EvoFrance2026🔥",
+     "url": "https://x.com/TEKKEN/status/2108467553467019605"}
+  ]
+}
