@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Neon Streets: Play Free as Dubzilla | Kri5pydubz</title>
-  <meta name="description" content="Neon Streets, a free side-scrolling brawler from Kri5pydubz. Dubzilla holds the neon strip. Play now in your browser.">
+  <title>Play Free: Neon Streets and Highway Racer | Kri5pydubz</title>
+  <meta name="description" content="Play Neon Streets and Dubz Highway Racer free in your browser. Brawl on the neon strip or race the highway with Kri5pydubz.">
   <link rel="canonical" href="https://kri5pydubz.com/play.html">
-  <meta property="og:title" content="Neon Streets: Play Free as Dubzilla | Kri5pydubz">
-  <meta property="og:description" content="Neon Streets, a free side-scrolling brawler from Kri5pydubz. Dubzilla holds the neon strip. Play now in your browser.">
+  <meta property="og:title" content="Play Free: Neon Streets and Highway Racer | Kri5pydubz">
+  <meta property="og:description" content="Play Neon Streets and Dubz Highway Racer free in your browser. Brawl on the neon strip or race the highway with Kri5pydubz.">
   <meta property="og:url" content="https://kri5pydubz.com/play.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kri5pydubz">
   <meta property="og:image" content="https://kri5pydubz.com/assets/dubzilla-hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Neon Streets: Play Free as Dubzilla | Kri5pydubz">
-  <meta name="twitter:description" content="Neon Streets, a free side-scrolling brawler from Kri5pydubz. Dubzilla holds the neon strip. Play now in your browser.">
+  <meta name="twitter:title" content="Play Free: Neon Streets and Highway Racer | Kri5pydubz">
+  <meta name="twitter:description" content="Play Neon Streets and Dubz Highway Racer free in your browser. Brawl on the neon strip or race the highway with Kri5pydubz.">
   <meta name="twitter:image" content="https://kri5pydubz.com/assets/dubzilla-hero.jpg">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
@@ -37,6 +37,30 @@
       padding: 0.75rem 1.25rem;
       border-bottom: 1px solid rgba(244,241,234,0.12);
       background: #111;
+    }
+    .game-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .game-tabs button {
+      min-height: 44px;
+      padding: 0.5rem 0.75rem;
+      border: 2px solid var(--spray);
+      background: var(--asphalt);
+      color: var(--bone);
+      font: 1rem "Permanent Marker", cursive;
+      cursor: pointer;
+    }
+    .game-tabs button[aria-selected="true"] {
+      background: var(--atomic);
+      color: var(--asphalt);
+      box-shadow: 3px 3px 0 var(--spray);
+    }
+    .game-tabs button:focus-visible {
+      outline: 3px solid var(--bone);
+      outline-offset: 3px;
     }
     .play-bar h1 {
       margin: 0;
@@ -91,14 +115,19 @@
   </header>
 
   <div class="play-bar">
-    <h1>Neon Streets</h1>
-    <p class="hint">WASD / arrows · Space jump · J claw · K spin · L breath · G grab · M mute. Tap the game once so keys go there.</p>
+    <div class="game-tabs" role="tablist" aria-label="Choose a game">
+      <button type="button" id="tab-neon" role="tab" aria-selected="true" aria-controls="game" data-game="neon">Neon Streets</button>
+      <button type="button" id="tab-racer" role="tab" aria-selected="false" aria-controls="game" tabindex="-1" data-game="racer">Highway Racer</button>
+    </div>
+    <h1 id="game-heading">Neon Streets</h1>
+    <p class="hint" id="game-hint">WASD / arrows · Space jump · J claw · K spin · L breath · G grab · M mute. Tap the game once so keys go there.</p>
   </div>
 
   <div class="play-stage-wrap">
     <iframe
       id="game"
       class="play-stage"
+      aria-describedby="game-hint"
       title="Neon Streets / Dubzilla"
       src="play/index.html"
       allow="fullscreen; gamepad; autoplay"
@@ -111,6 +140,51 @@
     <p class="legal-links"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="league-rules.html">League rules</a> · <a href="mailto:krispydubz@gmail.com">krispydubz@gmail.com</a></p>
     <p class="legal-note">© 2026 Kri5pydubz. Dubzilla and the DUBZ logo belong to Kri5pydubz. TEKKEN is a trademark of Bandai Namco Entertainment; this site isn’t affiliated with or endorsed by them. Other trademarks belong to their owners.</p>
   </footer>
+<script>
+(() => {
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const frame = document.getElementById('game');
+  const heading = document.getElementById('game-heading');
+  const hint = document.getElementById('game-hint');
+  const games = {
+    neon: { src: 'play/index.html', title: 'Neon Streets / Dubzilla', heading: 'Neon Streets', hint: hint.textContent },
+    racer: { src: 'play-racer/index.html', title: 'Dubz Highway Racer', heading: 'Dubz Highway Racer', hint: 'A / D or arrows steer · Hold Space for nitro · Swipe to weave and hold to boost on phone. Tap the game once so keys go there.' }
+  };
+  function selectGame(key, updateHash = false) {
+    const game = games[key];
+    tabs.forEach(tab => {
+      const selected = tab.dataset.game === key;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    heading.textContent = game.heading;
+    hint.textContent = game.hint;
+    frame.title = game.title;
+    if (frame.getAttribute('src') !== game.src) frame.src = game.src;
+    if (updateHash) history.replaceState(null, '', '#' + key);
+  }
+  function readHash() {
+    if (location.hash === '#racer') selectGame('racer');
+    else if (location.hash === '#neon' || !location.hash) selectGame('neon');
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectGame(tab.dataset.game, true));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      selectGame(tabs[next].dataset.game, true);
+      tabs[next].focus();
+    });
+  });
+  window.addEventListener('hashchange', readHash);
+  readHash();
+})();
+</script>
 <script data-goatcounter="https://kri5pydubz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
