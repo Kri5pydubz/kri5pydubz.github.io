@@ -45,6 +45,12 @@
     .news-updated{font-family:"Permanent Marker",cursive;color:var(--tag);margin:0.6rem 0 0;}
     .news-hero-art{margin:0;justify-self:center;width:min(100%,22rem);}
     .news-hero-art img{width:100%;border:4px solid var(--bone);box-shadow:8px 8px 0 var(--ink),12px 12px 0 var(--atomic);transform:rotate(1.6deg);}
+    .news-top{display:flex !important;align-items:center;gap:1rem;min-height:0 !important;padding-top:1.2rem !important;padding-bottom:0.6rem !important;}
+    .news-top .hero-copy{flex:1;}
+    .news-top .hook,.news-top .lede{display:none;}
+    .news-top .news-hero-art{width:5.5rem;flex:none;}
+    .news-top .news-hero-art img{border-width:2px;box-shadow:4px 4px 0 var(--ink),6px 6px 0 var(--atomic);}
+    .news-top + .news{padding-top:1rem !important;}
     @media (max-width:40rem){nav{flex-wrap:wrap;}}
   </style>
 </head>
@@ -62,13 +68,13 @@
       <a href="members.html">Members</a>
 
   <main id="main">
-    <section class="hero" id="top">
+    <section class="hero news-top" id="top">
       <div class="hero-copy">
         <p class="kicker">DUBZ wire · Tekken 8</p>
         <h1 class="wordmark">News</h1>
         <p class="hook">Kri5pydubz. Let’s run it.</p>
         <p class="lede">Crew updates, Dubzilla drops, league news and the latest from the Tekken 8 world, all in one alley.</p>
-        <p class="news-updated">Last updated: 14 Oct 2026</p>
+        <p class="news-updated">Last updated: 23 Oct 2026</p>
       </div>
       <figure class="news-hero-art"><img src="assets/dubzilla-hero.jpg" alt="Dubzilla, the Kri5pydubz mascot" width="600" height="800" loading="eager"></figure>
     </section>
