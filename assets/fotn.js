@@ -1,5 +1,5 @@
 // Fight of the Night config. Set playlistId to embed the whole playlist (latest first), or videoId for one video.
-window.DUBZ_FOTN = { videoId: 'FgRxixqWvQ4', playlistId: '' };
+window.DUBZ_FOTN = { videoId: 'FgRxixqWvQ4', playlistId: 'PLQdDqm27zkIE' };
 (function(){
   function run(){
     var c=window.DUBZ_FOTN||{}, box=document.getElementById('fotn-player'); if(!box) return;
