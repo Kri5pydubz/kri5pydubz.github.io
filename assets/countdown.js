@@ -1,8 +1,34 @@
 (function () {
   const root = document.getElementById("stream-countdown");
+  function weeklyStarts(rule, count) {
+    if (!rule) return [];
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: rule.timeZone, year: "numeric", month: "numeric", day: "numeric",
+      hour: "numeric", minute: "numeric", weekday: "short", hourCycle: "h23"
+    });
+    const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const out = [];
+    const base = new Date(); base.setUTCHours(12, 0, 0, 0);
+    for (let d = -7; d < 7 * count + 7 && out.length < count + 2; d++) {
+      const noon = new Date(base.getTime() + d * 86400000);
+      const p = Object.fromEntries(parts.formatToParts(noon).map((x) => [x.type, x.value]));
+      if (days.indexOf(p.weekday) !== rule.weekday) continue;
+      let guess = Date.UTC(+p.year, +p.month - 1, +p.day, rule.hour, rule.minute);
+      for (let i = 0; i < 2; i++) {
+        const q = Object.fromEntries(parts.formatToParts(new Date(guess)).map((x) => [x.type, x.value]));
+        const shown = Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour, +q.minute);
+        guess -= shown - Date.UTC(+p.year, +p.month - 1, +p.day, rule.hour, rule.minute);
+      }
+      out.push(new Date(guess));
+    }
+    return out;
+  }
+  const seen = new Set();
   const streams = (window.DUBZ_STREAMS || [])
     .map((value) => new Date(value))
+    .concat(weeklyStarts(window.DUBZ_WEEKLY, 8))
     .filter((date) => !Number.isNaN(date.getTime()))
+    .filter((date) => !seen.has(date.getTime()) && seen.add(date.getTime()))
     .sort((a, b) => a - b);
   const liveMs = (Number(window.LIVE_HOURS) || 3) * 60 * 60 * 1000;
   if (!root || !streams.length) return;
@@ -28,7 +54,7 @@
 
     root.hidden = false;
     if (current >= stream.getTime()) {
-      root.innerHTML = '<p class="stream-live">LIVE NOW</p><div class="stream-actions"><a class="btn btn-primary" href="https://www.tiktok.com/@kri5pydubz">Watch on TikTok</a><a class="btn btn-ghost" href="https://www.twitch.tv/kri5pydubz">Watch on Twitch</a></div>';
+      root.innerHTML = '<p class="stream-live">LIVE NOW</p><div class="stream-actions"><a class="btn btn-primary" href="https://www.youtube.com/@Kri5pydubz/live" target="_blank" rel="noopener">Watch on YouTube</a><a class="btn btn-ghost" href="https://www.tiktok.com/@kri5pydubz/live" target="_blank" rel="noopener">Watch on TikTok</a></div>';
       return;
     }
 
