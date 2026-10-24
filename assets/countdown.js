@@ -1,37 +1,51 @@
 (function () {
   const root = document.getElementById("stream-countdown");
-  function weeklyStarts(rule, count) {
-    if (!rule) return [];
-    const parts = new Intl.DateTimeFormat("en-GB", {
-      timeZone: rule.timeZone, year: "numeric", month: "numeric", day: "numeric",
-      hour: "numeric", minute: "numeric", weekday: "short", hourCycle: "h23"
-    });
-    const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  const TZ = "Europe/London";
+  const DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  const fmtParts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: TZ, year: "numeric", month: "numeric", day: "numeric",
+    hour: "numeric", minute: "numeric", weekday: "short", hourCycle: "h23"
+  });
+  const partsOf = (date) => Object.fromEntries(fmtParts.formatToParts(date).map((x) => [x.type, x.value]));
+  // UK wall-clock time -> real instant (DST-aware).
+  function ukToDate(y, m, d, hh, mm) {
+    const want = Date.UTC(y, m - 1, d, hh, mm);
+    let guess = want;
+    for (let i = 0; i < 2; i++) {
+      const q = partsOf(new Date(guess));
+      guess -= Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour, +q.minute) - want;
+    }
+    return new Date(guess);
+  }
+  function parseOneOff(value) {
+    const m = String(value).trim().match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{1,2}):(\d{2})$/);
+    if (m) return ukToDate(+m[1], +m[2], +m[3], +m[4], +m[5]);
+    return new Date(value); // also accepts full ISO with Z/offset
+  }
+  function weeklyStarts(rules, weeks) {
     const out = [];
     const base = new Date(); base.setUTCHours(12, 0, 0, 0);
-    for (let d = -7; d < 7 * count + 7 && out.length < count + 2; d++) {
-      const noon = new Date(base.getTime() + d * 86400000);
-      const p = Object.fromEntries(parts.formatToParts(noon).map((x) => [x.type, x.value]));
-      if (days.indexOf(p.weekday) !== rule.weekday) continue;
-      let guess = Date.UTC(+p.year, +p.month - 1, +p.day, rule.hour, rule.minute);
-      for (let i = 0; i < 2; i++) {
-        const q = Object.fromEntries(parts.formatToParts(new Date(guess)).map((x) => [x.type, x.value]));
-        const shown = Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour, +q.minute);
-        guess -= shown - Date.UTC(+p.year, +p.month - 1, +p.day, rule.hour, rule.minute);
-      }
-      out.push(new Date(guess));
+    for (let d = -2; d < 7 * weeks; d++) {
+      const p = partsOf(new Date(base.getTime() + d * 86400000));
+      rules.forEach((rule) => {
+        const day = DAYS.indexOf(String(rule.day || "").slice(0, 3).replace(/^./, (c) => c.toUpperCase()));
+        const t = String(rule.time || "").match(/^(\d{1,2}):(\d{2})$/);
+        if (day < 0 || !t || DAYS.indexOf(p.weekday) !== day) return;
+        out.push(ukToDate(+p.year, +p.month, +p.day, +t[1], +t[2]));
+      });
     }
     return out;
   }
+  const oneOffs = (window.DUBZ_STREAMS || []).map(parseOneOff);
+  const weekly = Array.isArray(window.DUBZ_WEEKLY) ? window.DUBZ_WEEKLY : [];
   const seen = new Set();
-  const streams = (window.DUBZ_STREAMS || [])
-    .map((value) => new Date(value))
-    .concat(weeklyStarts(window.DUBZ_WEEKLY, 8))
+  const listed = oneOffs.concat(weeklyStarts(weekly, 3))
     .filter((date) => !Number.isNaN(date.getTime()))
     .filter((date) => !seen.has(date.getTime()) && seen.add(date.getTime()))
     .sort((a, b) => a - b);
+  const fallback = weeklyStarts([{ day: "Sun", time: "21:00" }], 3);
   const liveMs = (Number(window.LIVE_HOURS) || 3) * 60 * 60 * 1000;
-  if (!root || !streams.length) return;
+  if (!root) return;
 
   const queryNow = new URLSearchParams(window.location.search).get("now");
   const mockedNow = queryNow ? Date.parse(queryNow) : NaN;
@@ -44,9 +58,28 @@
     hour: "numeric", minute: "2-digit", hour12: true, timeZone: "Europe/London"
   });
 
+  const heading = document.getElementById("when-heading");
+  const dayName = new Intl.DateTimeFormat("en-GB", { weekday: "long", timeZone: TZ });
+  const dayDate = new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "numeric", month: "short", timeZone: TZ });
+  const ukKey = (date) => { const p = partsOf(date); return p.year + "-" + p.month + "-" + p.day; };
+  function setHeading(stream, current) {
+    if (!heading || !stream) return;
+    const time = ukTime.format(stream).replace(/\s/g, "").replace(":00", "");
+    let day;
+    if (current >= stream.getTime()) day = "Live";
+    else if (ukKey(stream) === ukKey(new Date(current))) day = "Tonight";
+    else if (ukKey(stream) === ukKey(new Date(current + 86400000))) day = "Tomorrow";
+    else if (stream.getTime() - current < 6 * 86400000) day = dayName.format(stream);
+    else day = dayDate.format(stream);
+    const text = day === "Live" ? "We're live" : day + ", " + time;
+    if (heading.textContent !== text) heading.textContent = text;
+  }
+
   function render() {
     const current = now();
-    const stream = streams.find((start) => start.getTime() + liveMs > current);
+    const stream = listed.find((start) => start.getTime() + liveMs > current) ||
+      fallback.find((start) => start.getTime() + liveMs > current);
+    setHeading(stream, current);
     if (!stream) {
       root.hidden = true;
       return;
