@@ -39,11 +39,12 @@
   const oneOffs = (window.DUBZ_STREAMS || []).map(parseOneOff);
   const weekly = Array.isArray(window.DUBZ_WEEKLY) ? window.DUBZ_WEEKLY : [];
   const seen = new Set();
+  (window.DUBZ_CANCELLED || []).map(parseOneOff).forEach((d) => seen.add(d.getTime()));
   const listed = oneOffs.concat(weeklyStarts(weekly, 3))
     .filter((date) => !Number.isNaN(date.getTime()))
     .filter((date) => !seen.has(date.getTime()) && seen.add(date.getTime()))
     .sort((a, b) => a - b);
-  const fallback = weeklyStarts([{ day: "Sun", time: "21:00" }], 3);
+  const fallback = weeklyStarts([{ day: "Sun", time: "21:00" }], 3).filter((d) => !seen.has(d.getTime()));
   const liveMs = (Number(window.LIVE_HOURS) || 3) * 60 * 60 * 1000;
   if (!root) return;
 

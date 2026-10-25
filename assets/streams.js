@@ -4,6 +4,11 @@
 // 1) One-off streams: add ONE line per stream, UK date and time "YYYY-MM-DD HH:MM" (24h UK clock;
 //    summer/winter time is handled automatically). Old dates can stay; they're skipped once past.
 window.DUBZ_STREAMS = [
+  "2026-11-01 21:00",
+];
+//
+// Cancelled streams: add the UK date and time "YYYY-MM-DD HH:MM" to skip it (even a weekly one).
+window.DUBZ_CANCELLED = [
   "2026-10-25 21:00",
 ];
 //
