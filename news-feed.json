@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-10-24",
+  "updated": "2026-10-29",
   "posts": [
+    {
+      "id": "2115473837869424771",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-10-28T16:00:41Z",
+      "text": "She'll show you how a panda celebrates her birthday!\n\n#TEKKEN8",
+      "url": "https://x.com/TEKKEN/status/2115473837869424771"
+    },
     {
       "id": "2113993983143579837",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-10-11T12:56:49Z",
       "text": "If you want to get stronger, DO IT!\n\nCatch Yujiro Hanma's new trailer on Sunday, January 17, 2027, at the #TWT2026 Global Finals in Singapore🔥\n\n#TEKKEN8",
       "url": "https://x.com/TEKKEN/status/2109266974689702291"
-    },
-    {
-      "id": "2109262295234740284",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-10-11T12:38:14Z",
-      "text": "Roger Jr. is battle-ready. (And he's matching outfits with his mom👕)\n\nGet ready for Early Access Nov 12!\n\n#TEKKEN8",
-      "url": "https://x.com/TEKKEN/status/2109262295234740284"
     }
   ]
 }
