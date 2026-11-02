@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "posts": [
+    {
+      "id": "2116817605679845811",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-11-01T09:00:20Z",
+      "text": "Dad has reflected on his actions, and wanted to reconcile.\nBut sometimes, the truth is more brutal than an uppercut. 🦖\n \n#TekkenTagTournament2",
+      "url": "https://x.com/TEKKEN/status/2116817605679845811"
+    },
     {
       "id": "2116455210864333182",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-10-24T14:00:16Z",
       "text": "The Perfect Body is celebrating his birthday today!\n\n#TEKKEN8",
       "url": "https://x.com/TEKKEN/status/2113993983143579837"
-    },
-    {
-      "id": "2110022876745126176",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-10-13T15:00:30Z",
-      "text": "She's feeling devilish today 😈⚡\nHappy birthday, Reina! #TEKKEN8",
-      "url": "https://x.com/TEKKEN/status/2110022876745126176"
     }
   ]
 }
