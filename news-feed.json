@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "posts": [
+    {
+      "id": "2118286717551616500",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-11-05T10:18:03Z",
+      "text": "Shades✅\nVibes✅\nMatching shirts with Austalia's national flower on them✅\n\nGet ready to dress up on Early Access, Nov 12!\n\n#TEKKEN8",
+      "url": "https://x.com/TEKKEN/status/2118286717551616500"
+    },
     {
       "id": "2117913817141137579",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-11-02T16:00:31Z",
       "text": "World domination can wait for another day. \nHappy birthday, Kazuya 😈⚡\n#TEKKEN8",
       "url": "https://x.com/TEKKEN/status/2117285734587441189"
-    },
-    {
-      "id": "2117195103227789815",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-11-02T10:00:22Z",
-      "text": "Starting from November 12, his big, round eyes will gaze right at you 🥊🦘\nRoger Jr. will be featured on the main menu of #TEKKEN8 when Early Access starts!",
-      "url": "https://x.com/TEKKEN/status/2117195103227789815"
     }
   ]
 }
