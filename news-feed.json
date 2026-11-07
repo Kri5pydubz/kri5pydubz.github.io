@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "posts": [
+    {
+      "id": "2118629494428779006",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-11-06T09:00:08Z",
+      "text": "Check out Roger Jr.'s Character Panel🔥\n \nArtworks by @jbstyle222, @WolfMarker and @junny113\n \n#TEKKEN8",
+      "url": "https://x.com/TEKKEN/status/2118629494428779006"
+    },
     {
       "id": "2118286717551616500",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-11-03T09:50:18Z",
       "text": "That's one way to vent out your frustrations.\n\nCheck out Roger Jr.'s entrance animation, jumping in Early Access on Thursday, November 12!",
       "url": "https://x.com/TEKKEN/status/2117554956236476516"
-    },
-    {
-      "id": "2117285734587441189",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-11-02T16:00:31Z",
-      "text": "World domination can wait for another day. \nHappy birthday, Kazuya 😈⚡\n#TEKKEN8",
-      "url": "https://x.com/TEKKEN/status/2117285734587441189"
     }
   ]
 }
