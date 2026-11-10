@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-07",
+  "updated": "2026-11-10",
   "posts": [
+    {
+      "id": "2119727508962554233",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-11-09T09:43:15Z",
+      "text": "Only three days left until you can experience Whirling Punishment🌀\n\nHurl your opponents forward with this evolved version of Giant Swing!\n\n#TEKKEN8",
+      "url": "https://x.com/TEKKEN/status/2119727508962554233"
+    },
     {
       "id": "2118629494428779006",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-11-03T16:02:35Z",
       "text": "He's got to stand tall on his birthday ⚡🎂\nWish the best to the one and only Fahkumram!\n\n#TEKKEN8",
       "url": "https://x.com/TEKKEN/status/2117648644304212338"
-    },
-    {
-      "id": "2117554956236476516",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-11-03T09:50:18Z",
-      "text": "That's one way to vent out your frustrations.\n\nCheck out Roger Jr.'s entrance animation, jumping in Early Access on Thursday, November 12!",
-      "url": "https://x.com/TEKKEN/status/2117554956236476516"
     }
   ]
 }
