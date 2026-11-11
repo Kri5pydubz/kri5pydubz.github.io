@@ -1,0 +1,94 @@
+/* ==========================================================================
+   TEMPORARY seasonal accents — neon 80s / Vice City (GTA 6 hype window)
+   ==========================================================================
+   Safe to delete this file (and its <link> tags on index.html + news.html)
+   when the season ends. Does not change stream times, league details,
+   or the core DUBZ palette / fonts / Dubzilla art.
+
+   Accents only: pink #FF2E88, orange #FF8A3D, teal #19D3C5.
+   No Rockstar or GTA logos, fonts (no Pricedown), or official art.
+   ========================================================================== */
+
+:root {
+  --vc-pink: #FF2E88;
+  --vc-orange: #FF8A3D;
+  --vc-teal: #19D3C5;
+  --vc-sunset: linear-gradient(90deg, #FF2E88 0%, #FF8A3D 48%, #19D3C5 100%);
+}
+
+/* Thin announcement strip on the homepage */
+.seasonal-banner {
+  position: relative;
+  margin: 0;
+  padding: 1.15rem 1.15rem 0.8rem;
+  text-align: center;
+  background: #111111;
+  border-bottom: 3px solid #F4F1EA;
+}
+
+/* Sit just below the sticky header's 6px spray shadow so the sunset strip stays visible */
+.seasonal-banner::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 4px;
+  background: var(--vc-sunset);
+  box-shadow: 0 0 12px rgba(255, 46, 136, 0.45), 0 0 16px rgba(25, 211, 197, 0.28);
+}
+
+.seasonal-banner a {
+  display: inline-block;
+  max-width: min(40rem, 100%);
+  color: #F4F1EA;
+  font-family: "Permanent Marker", cursive;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  padding-bottom: 0.18rem;
+  background-image: var(--vc-sunset);
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  text-shadow: 0 0 10px rgba(255, 46, 136, 0.35), 0 0 14px rgba(25, 211, 197, 0.22);
+}
+
+.seasonal-banner a:hover,
+.seasonal-banner a:focus-visible {
+  color: #19D3C5;
+}
+
+@media (min-width: 70rem) {
+  .seasonal-banner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Subtle sunset cap on the variety news card only */
+.news-card.seasonal-card {
+  position: relative;
+}
+
+.news-card.seasonal-card::before {
+  content: "";
+  display: block;
+  height: 4px;
+  margin: -1rem -1rem 0.75rem;
+  background: var(--vc-sunset);
+  box-shadow: 0 0 10px rgba(255, 46, 136, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-banner a {
+    text-shadow: none;
+  }
+
+  .seasonal-banner::before,
+  .news-card.seasonal-card::before {
+    box-shadow: none;
+  }
+}
