@@ -1,46 +1,46 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "posts": [
     {
-      "id": "2120340650931708005",
+      "id": "2120735704267501817",
       "name": "TEKKEN",
       "handle": "TEKKEN",
-      "date": "2026-11-11T02:19:39Z",
-      "text": "A #TEKKEN8 patch will drop on Nov 11 at 23:00 CET | Nov 11 at 14:00 PST.\nThis patch intends to support Roger Jr. Early Access, correct unintended behavior, and update content on the TEKKEN SHOP.\n\n*Details of the update will be provided in the patch notes on the day of release.",
-      "url": "https://x.com/TEKKEN/status/2120340650931708005"
+      "date": "2026-11-12T04:29:27Z",
+      "text": "Participate in the #TWT2026 Global Finals!\n\nFight for the last spot to compete in TEKKEN World Tour Finals!\n\n▶️ Entry Deadline:\nUntil 4:00 AM on Dec 18 PST | 1:00 PM on Dec 18 CET\n\nThe top 3 finishers in the #TWT2026 Global Finals will be awarded special titles 🎖️",
+      "url": "https://x.com/TEKKEN/status/2120735704267501817"
     },
     {
-      "id": "2120155963764195628",
+      "id": "2120735531646501271",
       "name": "TEKKEN",
       "handle": "TEKKEN",
-      "date": "2026-11-10T14:05:47Z",
-      "text": "Embrace your inner joey and get ready to command from your pouch🤜🤛\n \nWatch Roger Jr.'s Starter Guide here: https://t.co/sbsppyd4KZ\n \n#TEKKEN8",
-      "url": "https://x.com/TEKKEN/status/2120155963764195628"
+      "date": "2026-11-12T04:28:46Z",
+      "text": "Show your support for #TWT2026 Global Finals!\n\nEveryone who logs into TEKKEN 8 during the specified period can receive the following item:\n▶️“TWT 2026 Community Plate”\n\nPlus, the top 3 players from #TWT2024 and #TWT2025 will receive a special title plate featuring their names 🎖️",
+      "url": "https://x.com/TEKKEN/status/2120735531646501271"
     },
     {
-      "id": "2120155075020497366",
+      "id": "2120735029865189702",
       "name": "TEKKEN",
       "handle": "TEKKEN",
-      "date": "2026-11-10T14:02:15Z",
-      "text": "Our in-game #NIKE x #TEKKEN8 collaboration is coming soon🔥\n\nThere will be 4 in-game items available:\n\n🥊2 NIKE sneaker models\n🥊1 NIKE top costume piece\n🥊1 NIKE bottom costume piece\n\nCheck out the NIKE-themed ARENA stage in the trailer👇",
-      "url": "https://x.com/TEKKEN/status/2120155075020497366"
+      "date": "2026-11-12T04:26:47Z",
+      "text": "Selected items from the “TEKKEN FIGHT PASS - ROUND 2” will be restocked for a limited time⏳\n\n📅 Sales Period\nDecember 17, 2026 – January 14, 2027",
+      "url": "https://x.com/TEKKEN/status/2120735029865189702"
     },
     {
-      "id": "2120079108105261072",
+      "id": "2120734382289805316",
       "name": "TEKKEN",
       "handle": "TEKKEN",
-      "date": "2026-11-10T09:00:23Z",
-      "text": "No one can hop in the way of Mom and Roger Jr.'s Heat Smash🦘\n\nBounce into Early Access in just two days!\n\n#TEKKEN8",
-      "url": "https://x.com/TEKKEN/status/2120079108105261072"
+      "date": "2026-11-12T04:24:12Z",
+      "text": "During the event period, eligible items will be available at special prices on the #TEKKEN SHOP🔥\n\n🔻General Costumes\nGrim Reaper Pack\nSeductive Pack\n\n🔻Classic Costumes\nJin\nJun\n\n🔻Avatar Skins\nTiger Costume\nRoger Jr.\nKuma\nPanda",
+      "url": "https://x.com/TEKKEN/status/2120734382289805316"
     },
     {
-      "id": "2119727508962554233",
+      "id": "2120733521740177478",
       "name": "TEKKEN",
       "handle": "TEKKEN",
-      "date": "2026-11-09T09:43:15Z",
-      "text": "Only three days left until you can experience Whirling Punishment🌀\n\nHurl your opponents forward with this evolved version of Giant Swing!\n\n#TEKKEN8",
-      "url": "https://x.com/TEKKEN/status/2119727508962554233"
+      "date": "2026-11-12T04:20:47Z",
+      "text": "Limited-edition NIKE-collaboration items are available in the #TEKKEN FIGHT PASS - ROUND 12👟\n\nLevel up by logging in and playing online matches to get these items!\n\n🆓FREE\nGet up to 🪙100 TC\n\n🏆PREMIUM\nGet even more luxurious items and up to 🪙600 TC 🙌",
+      "url": "https://x.com/TEKKEN/status/2120733521740177478"
     }
   ]
 }
