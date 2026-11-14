@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-14",
   "posts": [
+    {
+      "id": "2121258082722574466",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-11-13T15:05:12Z",
+      "text": "We’ve confirmed the following issue in #TEKKEN8 Ver.3.03.01 (all platforms):\n\n- New avatar creation only: “Paul Look-Alike Set” items can be equipped even if not purchased/owned\n\n- Finishing editing with unowned items equipped may block Main Menu access on next login",
+      "url": "https://x.com/TEKKEN/status/2121258082722574466"
+    },
     {
       "id": "2120735704267501817",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-11-12T04:24:12Z",
       "text": "During the event period, eligible items will be available at special prices on the #TEKKEN SHOP🔥\n\n🔻General Costumes\nGrim Reaper Pack\nSeductive Pack\n\n🔻Classic Costumes\nJin\nJun\n\n🔻Avatar Skins\nTiger Costume\nRoger Jr.\nKuma\nPanda",
       "url": "https://x.com/TEKKEN/status/2120734382289805316"
-    },
-    {
-      "id": "2120733521740177478",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-11-12T04:20:47Z",
-      "text": "Limited-edition NIKE-collaboration items are available in the #TEKKEN FIGHT PASS - ROUND 12👟\n\nLevel up by logging in and playing online matches to get these items!\n\n🆓FREE\nGet up to 🪙100 TC\n\n🏆PREMIUM\nGet even more luxurious items and up to 🪙600 TC 🙌",
-      "url": "https://x.com/TEKKEN/status/2120733521740177478"
     }
   ]
 }
