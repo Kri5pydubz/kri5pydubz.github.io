@@ -1,7 +1,15 @@
 {
   "_readme": "Feed for news.html 'Tekken posts'. Daily updates edit ONLY this file. 'posts' is newest first; each item: id (X post id), name (display name), handle (no @), date (ISO 8601 UTC), text (plain post text, no HTML), url (https://x.com/<handle>/status/<id>). Keep 3-6 items. Bump 'updated'.",
-  "updated": "2026-11-14",
+  "updated": "2026-11-17",
   "posts": [
+    {
+      "id": "2122473775488753776",
+      "name": "TEKKEN",
+      "handle": "TEKKEN",
+      "date": "2026-11-16T23:35:56Z",
+      "text": "Roger Jr.'s General Access starts today!\n\nFind out the story behind his inclusion in the game with our \"GREAT TEKKEN ANIMALS\" short comic🔥\n\n#TEKKEN8",
+      "url": "https://x.com/TEKKEN/status/2122473775488753776"
+    },
     {
       "id": "2121258082722574466",
       "name": "TEKKEN",
@@ -33,14 +41,6 @@
       "date": "2026-11-12T04:26:47Z",
       "text": "Selected items from the “TEKKEN FIGHT PASS - ROUND 2” will be restocked for a limited time⏳\n\n📅 Sales Period\nDecember 17, 2026 – January 14, 2027",
       "url": "https://x.com/TEKKEN/status/2120735029865189702"
-    },
-    {
-      "id": "2120734382289805316",
-      "name": "TEKKEN",
-      "handle": "TEKKEN",
-      "date": "2026-11-12T04:24:12Z",
-      "text": "During the event period, eligible items will be available at special prices on the #TEKKEN SHOP🔥\n\n🔻General Costumes\nGrim Reaper Pack\nSeductive Pack\n\n🔻Classic Costumes\nJin\nJun\n\n🔻Avatar Skins\nTiger Costume\nRoger Jr.\nKuma\nPanda",
-      "url": "https://x.com/TEKKEN/status/2120734382289805316"
     }
   ]
 }
